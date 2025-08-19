@@ -345,7 +345,7 @@ def great_circle_cap_outline(center_theta: float, center_phi: float, radius_deg:
 # Data I/O
 # -----------------------------------------------------------------------------
 def load_long_tsv(file, pheno_col, var_col, beta_col, se_col) -> Tuple[pd.DataFrame, List[str], List[str]]:
-    df = pd.read_csv(file, sep=None, engine="python", low_memory=False)  # auto-sep
+    df = pd.read_csv(file, sep=None, engine="python")  # auto-sep
     if var_col not in df.columns and "rsid" in df.columns:
         var_col = "rsid"
     required = [pheno_col, var_col, beta_col, se_col]
